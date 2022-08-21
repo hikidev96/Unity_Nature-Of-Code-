@@ -6,8 +6,10 @@ namespace NOC
     {
         [SerializeField] private float stepSize = 5.0f;
         [SerializeField] private float stepSpeed = 5.0f;
+        [SerializeField] private float reachRange = 1.0f;
         [SerializeField] private bool updateTargetPosWhenReach = true;
         [SerializeField] private bool smoothlyMovement = true;
+        [SerializeField] private bool showTargetPosOnGizmo = false;
 
         private Vector2 targetPosition;
 
@@ -50,12 +52,20 @@ namespace NOC
 
         private bool IsReachTargetPosition()
         {
-            return Vector3.Distance(this.transform.position, targetPosition) < 1.0f;
+            return Vector3.Distance(this.transform.position, targetPosition) < reachRange;
         }
 
         private void UpdateTargetPosition()
         {
             targetPosition = GetTargetPosition();
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (showTargetPosOnGizmo == true)
+            {
+                Gizmos.DrawWireSphere(targetPosition, 0.5f);
+            }            
         }
     }
 }

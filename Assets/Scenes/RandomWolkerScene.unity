@@ -221,8 +221,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepSize: 5
   stepSpeed: 5
+  reachRange: 0.5
   updateTargetPosWhenReach: 1
   smoothlyMovement: 1
+  showTargetPosOnGizmo: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +278,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
